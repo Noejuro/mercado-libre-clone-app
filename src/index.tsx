@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from '@mui/material';
+import './index.css';
+
+const theme = createTheme({
+      palette: {
+            primary: {
+                  main: "#3483fa"
+            },
+            secondary: {
+                  main: "rgba(65,137,230,.15)",
+                  contrastText: "#3483fa"
+            },
+      },
+});
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-      <App />
+      <ThemeProvider theme={theme}>
+            <App />
+      </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
